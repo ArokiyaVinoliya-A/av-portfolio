@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | Arokiya Vinoliya</title>
+
+    <!-- Same Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Same Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <!-- ================= LOGIN ================= -->
+
+    <div class="login-page">
+
+        <div class="login-glow"></div>
+
+        <div class="login-card">
+
+            <!-- Logo -->
+
+            <div class="login-logo">
+                AV<span>Portfolio</span>
+            </div>
+
+            <div class="login-icon">
+                <i class="fas fa-user-lock"></i>
+            </div>
+
+            <h1>Admin <span>Login</span></h1>
+
+            <p class="login-subtitle">
+                Login to manage your portfolio
+            </p>
+
+
+            <!-- Login Form -->
+
+            <form id="loginForm">
+
+                <div class="input-group">
+
+                    <label>
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter admin email"
+                        required>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        <i class="fas fa-lock"></i>
+                        Password
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter password"
+                            required>
+
+                        <i class="fas fa-eye"
+                           id="togglePassword"></i>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="login-btn">
+
+                    Login
+
+                    <i class="fas fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+
+            <p id="loginMessage"></p>
+
+
+            <!-- Back -->
+
+            <a href="index.html" class="back-home">
+
+                <i class="fas fa-arrow-left"></i>
+
+                Back to Portfolio
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+   <script type="module">
+
+    import { auth } from "./firebase.js";
+
+    import {
+        signInWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+    // ================= PASSWORD SHOW / HIDE =================
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    const password =
+        document.getElementById("password");
+
+
+    togglePassword.addEventListener("click", () => {
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            togglePassword.classList.remove("fa-eye");
+
+            togglePassword.classList.add("fa-eye-slash");
+
+        } else {
+
+            password.type = "password";
+
+            togglePassword.classList.remove("fa-eye-slash");
+
+            togglePassword.classList.add("fa-eye");
+
+        }
+
+    });
+
+
+    // ================= FIREBASE LOGIN =================
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+    const loginMessage =
+        document.getElementById("loginMessage");
+
+
+    loginForm.addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const pass =
+            document.getElementById("password").value;
+
+
+        loginMessage.textContent =
+            "Signing in...";
+
+        loginMessage.className = "";
+
+
+        try {
+
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                pass
+            );
+
+
+            loginMessage.textContent =
+                "Login successful!";
+
+            loginMessage.className =
+                "success";
+
+
+            setTimeout(() => {
+
+                window.location.href =
+                    "dashboard.html";
+
+            }, 700);
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            loginMessage.textContent =
+                "Invalid email or password.";
+
+            loginMessage.className =
+                "error";
+
+        }
+
+    });
+
+</script>
+</body>
+</html>

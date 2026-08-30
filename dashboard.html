@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Arokiya Vinoliya</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="dashboard-logo">
+            <img src="logo.png" alt="AV Logo">
+            AV<span>Portfolio</span>
+        </div>
+
+        <p class="admin-label">ADMIN PANEL</p>
+
+        <ul class="sidebar-menu">
+
+            <li class="menu-item active" data-section="profile">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </li>
+
+            <li class="menu-item" data-section="about">
+                <i class="fas fa-user-graduate"></i>
+                <span>About</span>
+            </li>
+
+            <li class="menu-item" data-section="skills">
+                <i class="fas fa-code"></i>
+                <span>Skills</span>
+            </li>
+
+            <li class="menu-item" data-section="projects">
+                <i class="fas fa-laptop-code"></i>
+                <span>Projects</span>
+            </li>
+
+            <li class="menu-item" data-section="certificates">
+                <i class="fas fa-award"></i>
+                <span>Certificates</span>
+            </li>
+
+            <li class="menu-item" data-section="contact">
+                <i class="fas fa-address-book"></i>
+                <span>Contact</span>
+            </li>
+
+            <li class="menu-item" data-section="social">
+                <i class="fas fa-share-nodes"></i>
+                <span>Social Links</span>
+            </li>
+
+        </ul>
+
+        <div class="sidebar-bottom">
+
+            <a href="index.html" target="_blank">
+                <i class="fas fa-eye"></i>
+                View Portfolio
+            </a>
+
+            <button id="logoutBtn">
+                <i class="fas fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <div class="topbar">
+
+            <div>
+                <p class="welcome-text">WELCOME BACK</p>
+                <h1>Admin <span>Dashboard</span></h1>
+            </div>
+
+            <div class="admin-profile">
+                <div class="admin-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+
+                <div>
+                    <strong>Arokiya Vinoliya</strong>
+                    <small>Admin</small>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ================= PROFILE ================= -->
+
+        <section class="dashboard-section active-section" id="profile">
+
+            <div class="section-heading">
+
+                <div>
+                    <p>PERSONAL INFORMATION</p>
+                    <h2>Profile <span>Settings</span></h2>
+                </div>
+
+            </div>
+
+            <div class="edit-card">
+
+                <div class="profile-preview">
+
+                    <div class="dashboard-photo">
+                        <img src="No dp _ Dp _ empty _ default dp _ blocked dp _ pfp _ gray dp _ black dp.jpg" id="profilePreview">
+                    </div>
+
+                    <label class="upload-btn">
+
+                        <i class="fas fa-camera"></i>
+                        Change Photo
+
+                        <input type="file"
+                               id="profileImage"
+                               accept="image/*"
+                               hidden>
+
+                    </label>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Full Name</label>
+
+                        <input type="text"
+                               id="profileName"
+                               value="loading...">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Role</label>
+
+                        <input type="text"
+                               id="profileRole"
+                               value="loading...">
+
+                    </div>
+
+                    <div class="form-group full">
+
+                        <label>Home Description</label>
+
+                        <textarea id="profileDescription"
+                                  rows="4"></textarea>
+
+                    </div>
+
+                </div>
+
+                <button class="save-btn" onclick="saveProfile()">
+                    <i class="fas fa-save"></i>
+                    Save Profile
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ================= ABOUT ================= -->
+
+<section class="dashboard-section" id="about">
+
+    <div class="section-heading">
+
+        <div>
+            <p>EDIT ABOUT SECTION</p>
+            <h2>About <span>Me</span></h2>
+        </div>
+
+    </div>
+
+    <div class="cards-grid">
+
+        <!-- STUDENT -->
+        <div class="edit-card">
+
+            <div class="card-icon">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+
+            <h3>B.Tech IT Student</h3>
+
+            <textarea
+                rows="5"
+                id="aboutStudent"
+            >Currently pursuing B.Tech Information Technology and building my knowledge in programming, web development and modern technologies.</textarea>
+
+            <button
+                class="small-save"
+                onclick="saveAbout('student')">
+
+                <i class="fas fa-save"></i>
+                Save Changes
+
+            </button>
+
+        </div>
+
+
+        <!-- INTERESTS -->
+        <div class="edit-card">
+
+            <div class="card-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+
+            <h3>My Interests</h3>
+
+            <textarea
+                rows="5"
+                id="aboutInterests"
+            >I enjoy learning new technologies, creating websites, exploring creative ideas and improving my technical skills.</textarea>
+
+            <button
+                class="small-save"
+                onclick="saveAbout('interests')">
+
+                <i class="fas fa-save"></i>
+                Save Changes
+
+            </button>
+
+        </div>
+
+
+        <!-- GOAL -->
+        <div class="edit-card">
+
+            <div class="card-icon">
+                <i class="fas fa-rocket"></i>
+            </div>
+
+            <h3>My Goal</h3>
+
+            <textarea
+                rows="5"
+                id="aboutGoal"
+            >My goal is to become a skilled IT professional and work on innovative projects that solve real-world problems.</textarea>
+
+            <button
+                class="small-save"
+                onclick="saveAbout('goal')">
+
+                <i class="fas fa-save"></i>
+                Save Changes
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= PROFILE STATS ================= -->
+
+    <div class="section-heading about-stats-heading">
+
+        <div>
+            <p>PROFILE INFORMATION</p>
+            <h2>My <span>Stats</span></h2>
+        </div>
+
+    </div>
+
+
+    <div class="about-stats-grid">
+
+
+        <!-- PROJECTS - AUTOMATIC -->
+        <div class="stat-edit-card">
+
+            <div class="stat-icon">
+                <i class="fas fa-folder-open"></i>
+            </div>
+
+            <div class="stat-content">
+
+                <h3>Projects</h3>
+
+                <strong id="dashboardProjectCount">
+                    0+
+                </strong>
+
+                <small>
+                    Automatically calculated
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATES - AUTOMATIC -->
+        <div class="stat-edit-card">
+
+            <div class="stat-icon">
+                <i class="fas fa-award"></i>
+            </div>
+
+            <div class="stat-content">
+
+                <h3>Certificates</h3>
+
+                <strong id="dashboardCertificateCount">
+                    0+
+                </strong>
+
+                <small>
+                    Automatically calculated
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- CGPA - EDITABLE -->
+        <div class="stat-edit-card">
+
+            <div class="stat-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+
+            <div class="stat-content">
+
+                <h3>CGPA</h3>
+
+                <input
+                    type="number"
+                    id="aboutCgpa"
+                    min="0"
+                    max="10"
+                    step="0.01"
+                    placeholder="Enter CGPA"
+                >
+
+                <button
+                    class="small-save"
+                    onclick="saveAboutCgpa()">
+
+                    <i class="fas fa-save"></i>
+                    Save CGPA
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESUME -->
+        <div class="stat-edit-card">
+
+            <div class="stat-icon">
+                <i class="fas fa-file-pdf"></i>
+            </div>
+
+            <div class="stat-content">
+
+                <h3>Resume</h3>
+
+                <input
+                    type="file"
+                    id="resumeFile"
+                    accept=".pdf"
+                >
+
+                <button
+                    class="small-save"
+                    onclick="uploadResume()">
+
+                    <i class="fas fa-upload"></i>
+                    Upload Resume
+
+                </button>
+
+                <small id="resumeStatus">
+                    No resume uploaded
+                </small>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+        <!-- ================= SKILLS ================= -->
+
+        <section class="dashboard-section" id="skills">
+
+            <div class="section-heading">
+
+                <div>
+                    <p>MANAGE YOUR TECHNOLOGIES</p>
+                    <h2>My <span>Skills</span></h2>
+                </div>
+
+                <button class="add-btn" onclick="openSkillModal()">
+                    <i class="fas fa-plus"></i>
+                    Add Skill
+                </button>
+
+            </div>
+
+        <div class="data-list" id="skillsList"></div>
+
+        </section>
+
+    <!-- ================= PROJECTS ================= -->
+
+<section class="dashboard-section" id="projects">
+
+    <div class="section-heading">
+
+        <div>
+            <p>MANAGE YOUR WORK</p>
+            <h2>My <span>Projects</span></h2>
+        </div>
+
+        <button
+            type="button"
+            class="add-btn"
+            onclick="openProjectModal()">
+
+            <i class="fas fa-plus"></i>
+            Add Project
+
+        </button>
+
+    </div>
+
+    <div
+        class="project-admin-grid"
+        id="projectAdminGrid">
+
+        <div class="loading-message">
+            <i class="fas fa-spinner fa-spin"></i>
+            Loading projects...
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= PROJECT MODAL ================= -->
+
+<div class="modal" id="projectModal">
+
+    <div class="modal-box project-modal-box">
+
+        <button
+            type="button"
+            class="close-modal"
+            onclick="closeProjectModal()">
+
+            <i class="fas fa-xmark"></i>
+
+        </button>
+
+
+        <div class="modal-icon">
+
+            <i class="fas fa-laptop-code"></i>
+
+        </div>
+
+
+        <h2 id="projectModalTitle">
+            Add New <span>Project</span>
+        </h2>
+
+        <p>
+            Add your project details below.
+        </p>
+
+
+        <!-- Project Title -->
+
+        <div class="form-group">
+
+            <label>Project Title</label>
+
+            <input
+                type="text"
+                id="projectTitle"
+                placeholder="Example: Personal Portfolio">
+
+        </div>
+
+
+        <!-- Description -->
+
+        <div class="form-group">
+
+            <label>Description</label>
+
+            <textarea
+                id="projectDescription"
+                rows="4"
+                placeholder="Describe your project..."></textarea>
+
+        </div>
+
+
+        <!-- Technologies -->
+
+        <div class="form-group">
+
+            <label>Technologies</label>
+
+            <input
+                type="text"
+                id="projectTechnologies"
+                placeholder="HTML, CSS, JavaScript">
+
+            <small>
+                Separate technologies using commas.
+            </small>
+
+        </div>
+
+
+        <!-- GitHub -->
+
+        <div class="form-group">
+
+            <label>
+                <i class="fab fa-github"></i>
+                GitHub Link
+            </label>
+
+            <input
+                type="url"
+                id="projectGithub"
+                placeholder="https://github.com/username/project">
+
+        </div>
+
+
+        <!-- Live Demo -->
+
+        <div class="form-group">
+
+            <label>
+                <i class="fas fa-globe"></i>
+                Live Demo Link
+            </label>
+
+            <input
+                type="url"
+                id="projectLiveDemo"
+                placeholder="https://your-project.com">
+
+        </div>
+
+
+       
+
+        <!-- Project Image Upload -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fas fa-image"></i>
+        Project Image
+    </label>
+
+    <input
+        type="file"
+        id="projectImageFile"
+        accept="image/*">
+
+    <small>
+        Upload a project image.
+    </small>
+
+</div>
+
+        <button
+            type="button"
+            class="save-btn"
+            onclick="saveProject()">
+
+            <i class="fas fa-save"></i>
+
+            Save Project
+
+        </button>
+
+    </div>
+
+</div>
+<!-- ================= CERTIFICATE MODAL ================= -->
+
+<div class="modal" id="certificateModal">
+
+    <div class="modal-box certificate-modal-box">
+
+        <button
+            type="button"
+            class="close-modal"
+            onclick="closeCertificateModal()">
+
+            <i class="fas fa-xmark"></i>
+
+        </button>
+
+
+        <div class="modal-icon">
+
+            <i class="fas fa-certificate"></i>
+
+        </div>
+
+
+        <h2 id="certificateModalTitle">
+            Add New <span>Certificate</span>
+        </h2>
+
+
+        <p>
+            Add your certificate details below.
+        </p>
+
+
+        <!-- Certificate Title -->
+
+        <div class="form-group">
+
+            <label>
+                Certificate Title
+            </label>
+
+            <input
+                type="text"
+                id="certificateTitle"
+                placeholder="Example: Cloud Computing">
+
+        </div>
+
+
+        <!-- Issuing Organization -->
+
+        <div class="form-group">
+
+            <label>
+                Issuing Organization
+            </label>
+
+            <input
+                type="text"
+                id="certificateOrganization"
+                placeholder="Example: NPTEL">
+
+        </div>
+
+
+        <!-- Achievement -->
+
+        <div class="form-group">
+
+            <label>
+                Achievement / Grade
+            </label>
+
+            <input
+                type="text"
+                id="certificateGrade"
+                placeholder="Example: Elite + Silver">
+
+        </div>
+
+
+        <!-- Issue Date -->
+
+        <div class="form-group">
+
+            <label>
+                Issue Date
+            </label>
+
+            <input
+                type="text"
+                id="certificateDate"
+                placeholder="Example: March 2026">
+
+        </div>
+        <!-- Certificate Description -->
+
+<div class="form-group">
+
+    <label>
+        Description
+    </label>
+
+    <textarea
+        id="certificateDescription"
+        rows="4"
+        placeholder="Describe your certificate, achievement or what you learned..."></textarea>
+
+</div>
+
+
+        <!-- Certificate File Upload -->
+
+        <div class="form-group">
+
+            <label>
+
+                <i class="fas fa-file-arrow-up"></i>
+
+                Upload Certificate
+
+            </label>
+
+
+            <input
+                type="file"
+                id="certificateFile"
+                accept="image/*,.pdf">
+
+
+            <small>
+                Upload certificate image or PDF.
+            </small>
+            <div
+    id="existingCertificateFile"
+    style="
+        display:none;
+        margin-top:10px;
+        padding:10px;
+        border-radius:10px;
+        background:rgba(0,229,255,0.08);
+        color:#00e5ff;
+        font-size:12px;
+    ">
+</div>
+
+        </div>
+
+
+        <!-- Save -->
+
+        <button
+            type="button"
+            class="save-btn"
+            onclick="saveCertificate()">
+
+            <i class="fas fa-save"></i>
+
+            Save Certificate
+
+        </button>
+
+
+    </div>
+
+</div>
+<!-- ================= CERTIFICATES ================= -->
+
+<section class="dashboard-section" id="certificates">
+
+    <div class="section-heading">
+
+        <div>
+            <p>YOUR ACHIEVEMENTS</p>
+            <h2>My <span>Certificates</span></h2>
+        </div>
+
+        <button
+            type="button"
+            class="add-btn"
+            onclick="openCertificateModal()">
+
+            <i class="fas fa-plus"></i>
+            Add Certificate
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="certificate-admin-grid"
+        id="certificateAdminGrid">
+
+        <div class="loading-message">
+
+            <i class="fas fa-spinner fa-spin"></i>
+
+            Loading certificates...
+
+        </div>
+
+    </div>
+
+</section>
+        <!-- ================= CONTACT ================= -->
+
+        <section class="dashboard-section" id="contact">
+
+            <div class="section-heading">
+
+                <div>
+                    <p>CONTACT INFORMATION</p>
+                    <h2>Contact <span>Details</span></h2>
+                </div>
+
+            </div>
+
+
+            <div class="edit-card">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Email</label>
+
+                        <input type="email"
+                               id="email"
+                               value="yourmail@gmail.com">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Phone</label>
+
+                        <input type="text"
+                               id="phone"
+                               value="+91 XXXXX XXXXX">
+
+                    </div>
+
+                    <div class="form-group full">
+
+                        <label>Location</label>
+
+                        <input type="text"
+                               id="location"
+                               value="Tamil Nadu, India">
+
+                    </div>
+
+                </div>
+
+                <button
+                   
+                   class="save-btn"
+                   onclick="saveContact()">
+
+                  <i class="fas fa-save"></i>
+                    Save Contact
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SOCIAL ================= -->
+
+        <section class="dashboard-section" id="social">
+
+            <div class="section-heading">
+
+                <div>
+                    <p>SOCIAL MEDIA</p>
+                    <h2>Social <span>Links</span></h2>
+                </div>
+
+            </div>
+
+
+            <div class="edit-card">
+
+                <div class="form-group">
+
+                    <label>
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </label>
+
+                   <input type="url"
+       id="socialLinkedin"
+       placeholder="www.linkedin.com/in/xxxxx-x-xxxxxx">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </label>
+
+                   <input type="url"
+       id="socialGithub"
+       placeholder="https://github.com/yourusername">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        <i class="fab fa-whatsapp"></i>
+                        Whatsapp
+                    </label>
+
+                    <input type="url"
+                           id="socialWhatsapp"  
+                           placeholder="https://wa.me/xxxxxxxxxxx">
+
+                </div>
+
+
+               <button
+    type="button"
+    class="save-btn"
+    onclick="saveSocialLinks()">
+
+    <i class="fas fa-save"></i>
+    Save Social Links
+
+</button> 
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= SKILL MODAL ================= -->
+
+<div class="modal" id="skillModal">
+
+    <div class="modal-box">
+
+        <button
+            type="button"
+            class="close-modal"
+            onclick="closeSkillModal()">
+
+            <i class="fas fa-xmark"></i>
+
+        </button>
+
+
+        <div class="modal-icon">
+
+            <i class="fas fa-code"></i>
+
+        </div>
+
+
+        <h2 id="skillModalTitle">
+            Add New <span>Skill</span>
+        </h2>
+
+        <p>
+            Add or update a skill in your portfolio.
+        </p>
+
+
+        <div class="form-group">
+
+            <label>Skill Category</label>
+
+        <div class="category-row">
+
+    <select id="skillCategory"></select>
+
+    <button
+        type="button"
+        class="add-category-btn"
+        onclick="openCategoryModal()">
+
+        <i class="fas fa-plus"></i>
+
+        Add Category
+
+    </button>
+
+</div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Skill Name</label>
+
+            <input
+                type="text"
+                id="newSkillName"
+                placeholder="Example: Python">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Skill Level:
+                <span id="skillPercentageText">80%</span>
+            </label>
+
+            <input
+                type="range"
+                id="newSkillPercentage"
+                min="0"
+                max="100"
+                value="80">
+
+        </div>
+
+
+        <button
+            type="button"
+            class="save-btn"
+            onclick="saveSkill()">
+
+            <i class="fas fa-save"></i>
+
+            Save Skill
+
+        </button>
+
+    </div>
+
+</div>
+<div class="modal" id="categoryModal">
+
+    <div class="modal-box">
+
+        <button
+            type="button"
+            class="close-modal"
+            onclick="closeCategoryModal()">
+
+            <i class="fas fa-xmark"></i>
+
+        </button>
+
+
+        <div class="modal-icon">
+
+            <i class="fas fa-layer-group"></i>
+
+        </div>
+
+
+        <h2>
+            Add New <span>Category</span>
+        </h2>
+
+        <p>
+            Create a custom skill category.
+        </p>
+
+
+        <div class="form-group">
+
+            <label>Category Name</label>
+
+            <input
+                type="text"
+                id="newCategoryName"
+                placeholder="Example: Frameworks">
+
+        </div>
+
+
+        <button
+            type="button"
+            class="save-btn"
+            onclick="saveCategory()">
+
+            <i class="fas fa-plus"></i>
+
+            Add Category
+
+        </button>
+
+    </div>
+
+</div>
+<div id="confirmModal" class="confirm-modal">
+
+    <div class="confirm-box">
+
+        <div class="confirm-icon">
+            <i class="fas fa-trash"></i>
+        </div>
+
+       <h2 id="confirmModalTitle">
+    Delete ?
+</h2>
+
+<p id="confirmModalMessage">
+    Are you sure you want to delete this ?
+</p>
+        <div class="confirm-actions">
+
+            <button
+                type="button"
+                id="cancelConfirmBtn"
+                class="cancel-confirm">
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                id="deleteConfirmBtn"
+                class="delete-confirm">
+                <i class="fas fa-trash"></i>
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="toastMessage" class="toast-message"></div>
+
+<script type="module" src="dashboard.js"></script>
+</body>
+</html>
