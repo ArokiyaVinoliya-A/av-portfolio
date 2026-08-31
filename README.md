@@ -14,6 +14,15 @@
 - 🔥 Firebase
 - 🗄️ Supabase
 
+## ✨ Features
+
+- Responsive portfolio website
+- About section
+- Projects section
+- Contact section
+- Firebase-powered dashboard
+
+
 ## 🚀 Live Website
 
 🔗 https://arokiyavinoliya-a.github.io/av-portfolio/
