@@ -1809,20 +1809,42 @@ async function loadPublicAbout() {
 
     try {
 
-        const snap = await getDoc(doc(db, "content", "about"));
+        const snap =
+            await getDoc(
+                doc(db, "content", "about")
+            );
 
         if (!snap.exists()) return;
 
         const data = snap.data();
 
-        const paragraphs = document.querySelectorAll(".about-card p");
+        const paragraphs =
+            document.querySelectorAll(
+                ".about-card p"
+            );
 
-        if (data.student && paragraphs[0]) paragraphs[0].textContent = data.student;
-        if (data.developer && paragraphs[1]) paragraphs[1].textContent = data.developer;
-        if (data.goal && paragraphs[2]) paragraphs[2].textContent = data.goal;
+        if (data.student && paragraphs[0]) {
+            paragraphs[0].textContent =
+                data.student;
+        }
+
+        if (data.interests && paragraphs[1]) {
+            paragraphs[1].textContent =
+                data.interests;
+        }
+
+        if (data.goal && paragraphs[2]) {
+            paragraphs[2].textContent =
+                data.goal;
+        }
 
     } catch (error) {
-        console.error("Public about loading error:", error);
+
+        console.error(
+            "Public about loading error:",
+            error
+        );
+
     }
 
 }
