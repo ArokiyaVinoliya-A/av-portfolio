@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arokiyavinoliya-a.github.io/av-portfolio/sitemap.xml
