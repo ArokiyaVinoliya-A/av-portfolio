@@ -31,6 +31,9 @@ onAuthStateChanged(auth, (user) => {
         window.location.replace("login.html");
         return;
     }
+    // User logged in → show dashboard
+    document.body.classList.add("auth-ready");
+
 
 });
 
