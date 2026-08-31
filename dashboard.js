@@ -23,14 +23,16 @@ import {
 
 // ================= AUTH =================
 
+// =============== AUTH ===============
+
 onAuthStateChanged(auth, (user) => {
 
     if (!user) {
-        window.location.href = "login.html";
+        window.location.replace("login.html");
+        return;
     }
 
 });
-
 
 // ================= NAVIGATION =================
 
